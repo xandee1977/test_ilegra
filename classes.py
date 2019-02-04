@@ -20,16 +20,26 @@ class FileImporter:
       self.IN_FILE
     )
     with open(filepath) as file:
-      self.file_lines = file.readlines()
+      lines = file.readlines()
+    if lines:
+      self.file_lines = lines
 
   # Parse a single line
-  def parse(self, line):
+  def parse_line(self, line):
     return line.split(self.COL_SEPARATOR)
 
   # maps the columns meanin
-  def map(self, line_list):
+  def map(self, line_fields):
     print('Map the file')
+    print(line_fields)
 
   # writes info to output file
   def write(self):
     print('Write the file')
+
+  def run(self):
+    self.load()
+    for line in self.file_lines:
+      line_fields = self.parse_line(line)
+      self.map(line_fields)
+
