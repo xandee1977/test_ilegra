@@ -1,5 +1,8 @@
-import os
+from classes import FileImporter
 
+importer = FileImporter()
+importer.load()
+'''
 BASE_PATH = os.path.dirname(os.path.abspath(__file__))
 
 IN_PATH = 'in/'
@@ -23,5 +26,4 @@ def load_input():
   return lines
 
 print(load_input())
-
-
+'''
