@@ -10,12 +10,14 @@ class FileImporter:
     COL_SEPARATOR = ','
 
     input_filename = None
-    file_lines = []
-    salesmans = []
-    customers = []
-    sales = []
-    top_sale = {"sale_id": None, "value": 0}
-    worst_salesman = None
+
+    def reset_params(self):
+        self.file_lines = []
+        self.salesmans = []
+        self.customers = []
+        self.sales = []
+        self.top_sale = {"sale_id": None, "value": 0}
+        self.worst_salesman = None
 
     def input_file(self, filename):
         self.input_filename = filename
@@ -127,6 +129,7 @@ class FileImporter:
         if not self.input_filename:
             return False
 
+        self.reset_params()
         self.load()
 
         for line in self.file_lines:
